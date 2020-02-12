@@ -1,0 +1,19 @@
+var app = new Vue({
+    el:"#todoApp",
+    data:{
+        list:["吃饭","睡觉","打豆豆"],
+        inputValue:"好好敲代码！"
+    },
+    methods:{
+        add:function(){
+            this.list.push(this.inputValue);
+        },
+        remove:function(index){
+            console.log(index)
+             this.list.splice(index,1);
+        },
+        clear:function(){
+            this.list=[];
+        }
+    },
+}) 

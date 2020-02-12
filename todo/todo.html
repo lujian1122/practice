@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 主体区域 -->
+    <section id="todoApp">
+        <!-- 输入框 -->
+        <head class="header">
+            <h1>ToDo例子</h1>
+            <input v-model="inputValue" @keyup.enter="add" autofocus="autofocus" autocomplete="off" placeholder="请输入" class="new-todo">
+        </head>
+
+        <!-- 列表区域 -->
+        <section class="main">
+            <ul class="todo-list">
+                <li class="todo" v-for="(item,index) in list">
+                    <div class="view">
+                        <span class="index">{{ index+1 }}</span>
+                        <label>{{ item }}</label>
+                        <button class="destroy" @click="remove(index)"></button>
+                    </div>
+                </li>
+            </ul>    
+        </section>
+
+        <!-- 统计请清空 -->
+        <footer class="footer">
+            <span class="todo-count" v-if="list.length!=0">
+                <strong>{{ list.length }}</strong>
+                item left
+            </span>
+            <button v-show="list.length!=0" class="clear-completed" @click="clear">
+                Clear
+            </button>
+        </footer>
+    </section>
+    
+    <!-- 底部 -->
+    <footer class="info"></footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./main.js"></script>
+   
+</body>
+</html>
